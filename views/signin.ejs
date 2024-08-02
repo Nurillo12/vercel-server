@@ -1,0 +1,33 @@
+<%- include('layouts/header') %>
+<%- include('layouts/navbar') %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-3">
+
+
+      <h1 class="text-center "> <%=sarlavha  %> </h1>
+      <% if(error) { %>
+        <div class="alert alert-danger text-center mt-3">
+          <%=error %>
+        </div>
+         <% } %>
+      <form method="post" action="signin">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input name="email" placeholder="Email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input name="password" placeholder="Password" type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <button  type="submit" class="btn btn-primary form-control py-2 mb-4">Login</button>
+        <a href="/signup" class="offset-4">Agar sizda accaunt mavjud bo'lmasa</a>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+
+<%- include('layouts/footer') %>

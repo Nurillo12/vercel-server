@@ -1,0 +1,46 @@
+<%- include('layouts/header') %>
+<%- include('layouts/navbar') %>
+
+  <h1 class="text-center"> Barcha mahsulotlar! </h1>
+  <div class="container mt-5">
+  <div class="row row-cols-1 row-cols-md-4 mb-3 text-center ">
+    <% if(posts) { %>
+      <% for(let post of posts) {%>
+        <div class="col mt-4">
+          <div class="card shadow-sm h-100">
+            <div class="overflow-hidden" style="height: 350px;">
+              <img src=" <%=post.rasm  %> " class="card-img-top w-100 h-100 " style="object-fit: cover;"> 
+            </div>
+          
+            <div class="card-body">
+              <p class="card-text fw-bold"> <%=post.tavsif  %> </p>
+              <div class="d-flex justify-content-end align-items-center">
+                <p>  </p>
+                <small class="text-muted"> <%=post.narx  %>.00$ </small>
+              </div>
+            </div>
+            <div class="card-footer ">
+              <div class="btn-group " role="group" aria-label="Basic example ">
+    
+                <form action="/detail" method="post">
+                <button type="submit" class="btn btn-outline-primary"> <a class="text-decoration-none text-dark"  href="#">Detail</a> </button>  </form>
+    
+                <form action="/edit/<%=post._id  %>" >
+                <button type="submit" class="btn btn-outline-secondary">Edit</button> </form>
+    
+                <form action="/delete/<%=post._id  %>" method="post">
+                  <button type="submit" class="btn btn-outline-danger" >Delete</button>
+                </form>
+                
+              </div>
+            </div>
+    
+          </div>
+        </div>
+        <% } %>
+      <% } %>
+  </div>
+</div>
+
+
+<%- include('layouts/footer') %>

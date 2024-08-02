@@ -1,0 +1,47 @@
+<%- include('layouts/header') %>
+<%- include('layouts/navbar') %>
+<div class="w-75 mx-auto">
+<% if(error) {%>
+
+  <div class="alert alert-danger col-md-6 offset text-center">
+    <p><%=error %></p>
+  </div>
+
+ <% } %>
+
+  <p class="fs-1 text-center"> Tahrirlash</p>
+  <% if(error) {%>
+    <div class="alert alert-danger">
+      <p class="text-center" > <%=error  %> </p>
+    </div>
+    <% } %>
+    <form method="post" action="/edit/<%=user_post._id %>">
+      <div class="mb-3">
+        <input type="text" class="form-control py-3" name="mahsulot"  value="<%=user_post.mahsulot%>" placeholder="mahsulot nomi">
+      </div>
+
+      <div class="form-floating mb-3">
+        
+        <textarea class="form-control" name="tavsif" id="floatingTextarea2" style="height: 100px"> <%=user_post.tavsif %> </textarea>
+        <label for="floatingTextarea2">tavsif</label>
+      </div>
+
+      <div class="mb-3">
+        <input type="img" class="form-control py-3" name="rasm" value="<%=user_post.rasm%>" placeholder="rasm">
+      </div>
+
+      <div class="input-group mb-5">
+        <span class="input-group-text">$</span>
+        <div class="form-floating">
+          <input type="number" class="form-control align-items-center" name="narx" value="<%=user_post.narx%>" id="floatingInputGroup1" placeholder="narx">
+          
+        </div>
+      </div>
+      <div class="d-grid gap-2 col-6 mx-auto">
+        <button type="submit" class="btn btn-primary form-control py-3 
+      </div>
+     mb-4">Yakunlash</button>
+    </form>
+ 
+</div>
+<%- include('layouts/footer') %>
